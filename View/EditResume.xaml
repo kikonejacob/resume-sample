@@ -1,0 +1,34 @@
+﻿<Window x:Class="resume.View.EditResume"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:resume.View"
+        mc:Ignorable="d"
+        Title="EditResume" Height="810.422" Width="605.07">
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,-6,-2">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="0.58"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <TextBox  HorizontalAlignment="Left" Height="18" Margin="113,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
+        <Label Content="First Name" HorizontalAlignment="Left" Height="26" Margin="27,16,0,0" VerticalAlignment="Top" Width="81"/>
+        <TextBox HorizontalAlignment="Left" Height="18" Margin="113,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Height="26" Margin="27,35,0,0" VerticalAlignment="Top" Width="81"/>
+        <DatePicker HorizontalAlignment="Left" Margin="113,66,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Birth date" HorizontalAlignment="Left" Height="26" Margin="27,66,0,0" VerticalAlignment="Top" Width="81"/>
+        <DataGrid HorizontalAlignment="Left" Height="137" Margin="27,138,0,0" VerticalAlignment="Top" Width="522"/>
+        <Label Content="Education:" HorizontalAlignment="Left" Height="26" Margin="27,107,0,0" VerticalAlignment="Top" Width="81"/>
+        <DataGrid HorizontalAlignment="Left" Height="170" Margin="27,330,0,0" VerticalAlignment="Top" Width="522"/>
+        <Label Content="Work history:" HorizontalAlignment="Left" Height="26" Margin="27,299,0,0" VerticalAlignment="Top" Width="81"/>
+        <DataGrid HorizontalAlignment="Left" Height="143" Margin="27,541,0,0" VerticalAlignment="Top" Width="522" SelectionChanged="DataGrid_SelectionChanged"/>
+        <Label Content="Certifications" HorizontalAlignment="Left" Height="23" Margin="27,513,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button Content="Save" HorizontalAlignment="Left" Height="27" Margin="459,701,0,0" VerticalAlignment="Top" Width="90"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Height="27" Margin="333,701,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
+
+    </Grid>
+</Window>
