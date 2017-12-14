@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:resume.View"
+        xmlns:vm="clr-namespace:resume.ViewModel"
         mc:Ignorable="d"
         Title="EditResume" Height="810.422" Width="605.07">
+    <Window.DataContext>
+        <vm:ResumeViewModel />
+    </Window.DataContext>
     <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,-6,-2">
         <Grid.RenderTransform>
             <TransformGroup>
@@ -15,19 +19,40 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <TextBox  HorizontalAlignment="Left" Height="18" Margin="113,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
-        <Label Content="First Name" HorizontalAlignment="Left" Height="26" Margin="27,16,0,0" VerticalAlignment="Top" Width="81"/>
-        <TextBox HorizontalAlignment="Left" Height="18" Margin="113,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Height="26" Margin="27,35,0,0" VerticalAlignment="Top" Width="81"/>
-        <DatePicker HorizontalAlignment="Left" Margin="113,66,0,0" VerticalAlignment="Top" Width="130"/>
-        <Label Content="Birth date" HorizontalAlignment="Left" Height="26" Margin="27,66,0,0" VerticalAlignment="Top" Width="81"/>
-        <DataGrid HorizontalAlignment="Left" Height="137" Margin="27,138,0,0" VerticalAlignment="Top" Width="522"/>
-        <Label Content="Education:" HorizontalAlignment="Left" Height="26" Margin="27,107,0,0" VerticalAlignment="Top" Width="81"/>
-        <DataGrid HorizontalAlignment="Left" Height="170" Margin="27,330,0,0" VerticalAlignment="Top" Width="522"/>
-        <Label Content="Work history:" HorizontalAlignment="Left" Height="26" Margin="27,299,0,0" VerticalAlignment="Top" Width="81"/>
-        <DataGrid HorizontalAlignment="Left" Height="143" Margin="27,541,0,0" VerticalAlignment="Top" Width="522" SelectionChanged="DataGrid_SelectionChanged"/>
-        <Label Content="Certifications" HorizontalAlignment="Left" Height="23" Margin="27,513,0,0" VerticalAlignment="Top" Width="105"/>
-        <Button Content="Save" HorizontalAlignment="Left" Height="27" Margin="459,701,0,0" VerticalAlignment="Top" Width="90"/>
+        <StackPanel Orientation="Vertical" DataContext="{Binding Path=CurrentResume, Mode=TwoWay}">
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal" Margin="4" >
+                    <Label Content="First Name" HorizontalAlignment="Left"  Margin="0,0,4,0" VerticalAlignment="Top" Width="81"/>
+                    <TextBox  Width="230" Text="{Binding PersonalInfo.FirstName}"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Last Name" HorizontalAlignment="Left"  Margin="0,0,8,0" VerticalAlignment="Top" Width="81"/>
+                    <TextBox Width="230" Text="{Binding PersonalInfo.LastName}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Birth date" HorizontalAlignment="Left"  Margin="0,0,8,0" VerticalAlignment="Top" Width="81"/>
+                    <DatePicker  Width="230"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel>
+            <DataGrid HorizontalAlignment="Left" Height="137" Margin="27,138,0,0" VerticalAlignment="Top" Width="522" ItemsSource="{Binding  CurrentResume.Educations}" />
+            <Label Content="Education:" HorizontalAlignment="Left" Height="26" Margin="27,107,0,0" VerticalAlignment="Top" Width="81"/>
+        </StackPanel>
+        <StackPanel>
+            <DataGrid HorizontalAlignment="Left" Height="170" Margin="27,330,0,0" VerticalAlignment="Top" Width="522" ItemsSource="{Binding CurrentResume.WorkHistories}"/>
+            <Label Content="Work history:" HorizontalAlignment="Left" Height="26" Margin="27,299,0,0" VerticalAlignment="Top" Width="81"/>
+        </StackPanel>
+        <StackPanel>
+            <DataGrid HorizontalAlignment="Left" Height="143" Margin="27,541,0,0" VerticalAlignment="Top" Width="522" ItemsSource="{Binding CurrentResume.Certifications}"/>
+            <Label Content="Certifications" HorizontalAlignment="Left" Height="23" Margin="27,513,0,0" VerticalAlignment="Top" Width="105"/>
+
+        </StackPanel>
+
+
+         <Button Content="Save" HorizontalAlignment="Left" Height="27" Margin="459,701,0,0" VerticalAlignment="Top" Width="90" Command="{Binding SaveCommand}"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Height="27" Margin="333,701,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
 
     </Grid>

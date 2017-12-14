@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Model\Cert.cs" />
     <Compile Include="Model\Education.cs" />
     <Compile Include="Model\PersonalInfo.cs" />

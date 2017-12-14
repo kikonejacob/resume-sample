@@ -11,8 +11,10 @@
         <vm:ResumeViewModel />
     </Window.DataContext>
     <Grid>
-        <Button Content="Edit" HorizontalAlignment="Left" Height="26" Margin="437,268,0,0" VerticalAlignment="Top" Width="58"/>
-        <DataGrid HorizontalAlignment="Left" Height="222" Margin="25,10,0,0" VerticalAlignment="Top" Width="470" ItemsSource="{Binding ResumeList}"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Height="26" Margin="430,268,0,0" VerticalAlignment="Top" Width="65"/>
+        <DataGrid HorizontalAlignment="Left" Height="253" Margin="25,10,0,0" VerticalAlignment="Top" Width="470" ItemsSource="{Binding ResumeList}"/>
+        <Button Content="New" HorizontalAlignment="Left" Margin="244,268,0,0" VerticalAlignment="Top" Width="75" Height="26" Command="{Binding NewCommand}" />
+        <Button Content="View" HorizontalAlignment="Left" Margin="341,268,0,0" VerticalAlignment="Top" Width="75" Height="26" />
 
     </Grid>
 </Window>

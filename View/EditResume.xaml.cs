@@ -21,7 +21,7 @@ namespace resume.View
     public partial class EditResume : Window
     {
        
-        public EditResume(Resume Resume)
+        public EditResume()
         {
             InitializeComponent();
         }
